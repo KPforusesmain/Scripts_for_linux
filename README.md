@@ -12,17 +12,18 @@ Colección de herramientas Linux organizadas por categorías.
 - dev
 - text
 - automation
+- packages
 
 ## Uso
 
 Dar permisos al generador:
 ```bash
-chmod +x create-linux-tools-structure.sh
+chmod +x linux-tools/create-linux-tools-structure.sh
 ```
 
 Ejecutar el generador:
 ```bash
-./create-linux-tools-structure.sh
+./linux-tools/create-linux-tools-structure.sh
 ```
 
 Entrar al proyecto:

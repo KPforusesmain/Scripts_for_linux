@@ -1,4 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+echo "===== INFORMACIÓN DE RED ====="
+echo "Hostname: $(hostname)"
+echo
+
+echo "Interfaces:"
+ip -brief addr || ifconfig || true
+echo
+
+echo "Gateway:"
+ip route | grep default || true
+echo
+
+echo "DNS:"
+grep nameserver /etc/resolv.conf || true

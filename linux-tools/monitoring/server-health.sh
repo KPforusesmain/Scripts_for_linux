@@ -1,4 +1,22 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+echo "===== SALUD DEL SISTEMA ====="
+echo "Fecha: $(date)"
+echo "Uptime: $(uptime -p)"
+echo
+
+echo "Carga:"
+uptime
+echo
+
+echo "Memoria:"
+free -h
+echo
+
+echo "Disco:"
+df -h
+echo
+
+echo "Top procesos CPU:"
+ps -eo pid,cmd,%cpu,%mem --sort=-%cpu | head -n 10

@@ -1,4 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+INTERVAL="${1:-2}"
+
+echo "Monitoreando CPU cada $INTERVAL segundos. Ctrl+C para salir."
+while true; do
+    clear
+    date
+    echo
+    top -bn1 | head -n 15
+    sleep "$INTERVAL"
+done

@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+HOST="${1:-8.8.8.8}"
+
+echo "Probando conectividad con: $HOST"
+ping -c 4 "$HOST"

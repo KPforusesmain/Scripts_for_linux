@@ -1,4 +1,25 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+DB_NAME="${1:-}"
+OUTPUT_DIR="${2:-$HOME/backups/mysql}"
+
+if ! command -v mysqldump >/dev/null 2>&1; then
+    echo "mysqldump no está instalado."
+    exit 1
+fi
+
+if [[ -z "$DB_NAME" ]]; then
+    read -rp "Nombre de la base de datos MySQL: " DB_NAME
+fi
+
+if [[ -z "$DB_NAME" ]]; then
+    echo "Debes indicar una base de datos."
+    exit 1
+fi
+
+mkdir -p "$OUTPUT_DIR"
+OUTPUT_FILE="$OUTPUT_DIR/${DB_NAME}_$(date +%Y-%m-%d_%H-%M-%S).sql"
+
+mysqldump "$DB_NAME" > "$OUTPUT_FILE"
+echo "Backup MySQL creado: $OUTPUT_FILE"

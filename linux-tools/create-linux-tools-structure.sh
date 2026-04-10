@@ -19,6 +19,7 @@ directories=(
   "dev"
   "text"
   "automation"
+  "packages"
 )
 
 for dir in "${directories[@]}"; do
@@ -99,6 +100,11 @@ scripts=(
   "automation/reminder-terminal.sh"
   "automation/workspace-opener.sh"
   "automation/task-timer.sh"
+
+  "packages/app-remove.sh"
+  "packages/package-manager.sh"
+  "packages/flatpak-manager.sh"
+  "packages/extension-manager.sh"
 )
 
 # Crear scripts con plantilla base
@@ -140,6 +146,7 @@ while true; do
   echo "7) Dev"
   echo "8) Text"
   echo "9) Automation"
+  echo "10) Packages"
   echo "0) Salir"
   echo
   read -rp "Selecciona una opción: " opt
@@ -154,6 +161,7 @@ while true; do
     7) echo "Carpeta: $BASE_DIR/dev"; pause ;;
     8) echo "Carpeta: $BASE_DIR/text"; pause ;;
     9) echo "Carpeta: $BASE_DIR/automation"; pause ;;
+    10) echo "Carpeta: $BASE_DIR/packages"; pause ;;
     0) echo "Saliendo..."; exit 0 ;;
     *) echo "Opción inválida"; pause ;;
   esac
@@ -178,6 +186,7 @@ Colección de herramientas Linux organizadas por categorías.
 - dev
 - text
 - automation
+- packages
 
 ## Uso
 

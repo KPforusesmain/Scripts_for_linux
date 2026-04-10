@@ -1,4 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+echo "Puertos locales en escucha:"
+if command -v ss >/dev/null 2>&1; then
+    ss -tuln
+elif command -v netstat >/dev/null 2>&1; then
+    netstat -tuln
+else
+    echo "No se encontró ss ni netstat."
+    exit 1
+fi

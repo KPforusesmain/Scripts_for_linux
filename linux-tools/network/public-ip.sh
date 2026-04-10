@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-echo "Script pendiente de implementar: $(basename "$0")"
+echo "IP pública:"
+curl -s ifconfig.me || curl -s api.ipify.org || echo "No se pudo obtener la IP pública."
+echo
